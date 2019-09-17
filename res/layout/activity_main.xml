@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vediodecoder.MainActivity" >
+
+    <Button 
+        android:id="@+id/start_btn"
+        android:text="开始"
+        android:layout_width="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"/>
+    
+    <RadioGroup 
+        android:id="@+id/play_type_group"
+        android:layout_above="@id/start_btn"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <RadioButton 
+            android:id="@+id/sigle_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单个播放"
+            android:checked="true"/>
+        
+        <RadioButton 
+            android:id="@+id/recycle_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="循环播放"/>
+        
+    </RadioGroup>
+    
+    <EditText 
+        android:id="@+id/file_path_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/start_btn"
+        android:layout_alignBottom="@id/start_btn"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:text="/mnt/sdcard/vedio_15882.h264"/>
+    <!-- /mnt/sdcard/vedio_25871.h264 -->
+    <!-- android:text="/mnt/sdcard/vedio_10568.h264" -->
+    
+    <TextView 
+        android:id="@+id/frame_text"
+        android:layout_below="@id/start_btn"
+        android:layout_width="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="帧间隔："/>
+    
+    <EditText 
+        android:id="@+id/frame_duration_value_edit"
+        android:layout_toRightOf="@id/frame_text"
+        android:layout_below="@id/file_path_text"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:digits="1234567890"
+        android:text="100"/>
+    
+    <TextView 
+        android:layout_toRightOf="@id/frame_duration_value_edit"
+        android:layout_alignBottom="@id/frame_duration_value_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="毫秒(ms)"/>
+    
+    <Button 
+        android:id="@+id/choose_file_btn"
+        android:layout_below="@id/frame_text"
+        android:layout_marginLeft="20dp"
+        android:text="选择文件"
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+    
+    <com.example.vediodecoder.MySurfaceView
+        android:id="@+id/my_surfaceview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone">
+        
+    </com.example.vediodecoder.MySurfaceView>
+
+</RelativeLayout>
